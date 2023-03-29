@@ -1,0 +1,10 @@
+FROM postgres:latest
+ENV POSTGRES_PASSWORD postgres_password
+# EXPOSE 5433
+EXPOSE 5432
+# CMD ["postgres", "-p", "5433"]
+
+
+# sudo pkill -u postgres
+
+
