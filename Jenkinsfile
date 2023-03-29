@@ -5,6 +5,8 @@ pipeline {
         stage('Build the Docker images') {
             steps {
                 sh '''
+                    whoami;
+                    
                     docker build -t chaheein123/myown_db -f ./postgres/Dockerfile.dev ./postgres;
 
                     docker build -t chaheein123/myown_server -f ./server/Dockerfile.dev ./server;
