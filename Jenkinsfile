@@ -15,6 +15,7 @@ pipeline {
         stage('Push the built Docker images to Docker Hub') {
             steps {
                 sh '''
+                    echo $some_var
                     docker push chaheein123/myown_server;
                 '''
             }
@@ -24,3 +25,4 @@ pipeline {
 
 
 
+// cat ~/my_password.txt | docker login --username foo --password-stdin
