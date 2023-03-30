@@ -15,7 +15,7 @@ pipeline {
         stage('Push the built Docker images to Docker Hub') {
             steps {
                 sh '''
-                    echo $some_var
+                    echo $DOCKER_PW;
                     docker push chaheein123/myown_server;
                 '''
             }
