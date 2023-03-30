@@ -4,25 +4,21 @@ pipeline {
     stages {
         stage('Build the Docker images') {
             steps {
-                sh '''
-                    whoami;
-                    
-                    docker build -t chaheein123/myown_db -f ./postgres/Dockerfile.dev ./postgres;
+                sh '''                    
+                    # docker build -t chaheein123/myown_db -f ./postgres/Dockerfile.dev ./postgres;
 
                     docker build -t chaheein123/myown_server -f ./server/Dockerfile.dev ./server;
                 '''
             }
         }
 
-        /* stage('Push the built Docker images to Docker Hub') {
+        stage('Push the built Docker images to Docker Hub') {
             steps {
                 sh '''
-                    docker build -t chaheein123/myown_db -f ./postgres/Dockerfile.dev ./postgres;
-
-                    docker build -t chaheein123/myown_server -f ./server/Dockerfile.dev ./server;
+                    docker push chaheein123/myown_server;
                 '''
             }
-        } */
+        }
     }
 }
 

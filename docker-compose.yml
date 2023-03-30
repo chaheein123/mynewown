@@ -10,9 +10,10 @@ services:
     # command: -p 5433
 
   server:
-    build:
-      context: ./server
-      dockerfile: Dockerfile.dev
+    # build:
+    #   context: ./server
+    #   dockerfile: Dockerfile.dev
+    image: "chaheein123/myown_server"
     ports:
       - "5000:5000"
     volumes:
