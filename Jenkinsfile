@@ -27,9 +27,7 @@ pipeline {
         stage('Publish over SSH') {
             steps {
                 sh """
-                    ssh -tt deployer@13.56.197.35 '
-                    echo helllllloooooo
-                    '
+                    ssh deployer@13.56.197.35
                     
                 """
             }
