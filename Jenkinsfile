@@ -23,9 +23,70 @@ pipeline {
                 '''
             }
         }
+
+        stage('Publish over SSH') {
+            steps {
+                sh """
+                    ssh -tt deployer@13.56.197.35 '
+                    echo helllllloooooo
+                    '
+                    
+                """
+            }
+        }
     }
 }
 
 
 
 // cat ~/my_password.txt | docker login --username foo --password-stdin
+
+
+
+
+
+
+/* pipeline{
+  agent any
+  environment {
+    RELEASENAME="yourProject-ci"
+  }
+  stages{
+    stage("Get the charts..."){
+        steps {checkout scm}
+    }
+    stage('SSH transfer') {
+        steps([$class: 'BapSshPromotionPublisherPlugin']) {
+            sshPublisher(
+                continueOnError: false, failOnError: true,
+                publishers: [
+                    sshPublisherDesc(
+                        configName: "kubernetes_master",
+                        verbose: true,
+                        transfers: [
+                            sshTransfer(execCommand: "/bin/rm -rf /opt/deploy/helm"),
+                            sshTransfer(sourceFiles: "helm/**",)
+                        ]
+                    )
+                ]
+            )
+        }
+    }
+    stage('Deploy Helm Scripts'){
+        steps([$class: 'BapSshPromotionPublisherPlugin']) {
+            sshPublisher(
+                continueOnError: false, failOnError: true,
+                publishers: [
+                    sshPublisherDesc(
+                        configName: "kubernetes_master",
+                        verbose: true,
+                        transfers: [
+                            sshTransfer(execCommand: "cd /opt/deploy/helm;helm upgrade ${RELEASENAME} . --install"),
+                        ]
+                    )
+                ]
+            )
+        }
+    }
+  }
+} */
