@@ -33,7 +33,7 @@ pipeline {
                     git clone https://github.com/chaheein123/mynewown.git;
                     cd mynewown;
                     docker-compose down;
-                    docker-compose up --build;
+                    docker-compose up -d --build;
                     '
                     
                 """
