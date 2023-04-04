@@ -28,8 +28,9 @@ pipeline {
             steps {
                 sh """
                     ssh -tt deployer@13.56.197.35 '
-                    git clone git@github.com:chaheein123/mynewown.git;
+                    git clone https://github.com/chaheein123/mynewown.git;
                     
+
                     '
                     
                 """
