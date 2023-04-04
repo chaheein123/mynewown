@@ -28,17 +28,18 @@ pipeline {
             steps {
                 sh """
                     ssh -tt deployer@13.56.197.35 '
-                    pwd;
+                    cd mynewown;
+                    docker-compose down;
+                    cd ..;
                     rm -rf mynewown;
                     git clone https://github.com/chaheein123/mynewown.git;
                     cd mynewown;
-                    docker-compose down;
                     docker-compose up -d --build;
                     '
                     
                 """
             }
-            
+
         }
     }
 }
