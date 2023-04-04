@@ -29,7 +29,8 @@ pipeline {
                 sh """
                     ssh -tt deployer@13.56.197.35 '
                     git clone https://github.com/chaheein123/mynewown.git;
-                    
+                    docker-compose down;
+                    docker-compose up --build;
 
                     '
                     
