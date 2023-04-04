@@ -29,7 +29,7 @@ pipeline {
                 sh """
                     ssh -tt deployer@13.56.197.35 '
                     pwd;
-                    rm -r mynewown;
+                    rm -rf mynewown;
                     git clone https://github.com/chaheein123/mynewown.git;
                     cd mynewown;
                     docker-compose down;
