@@ -3,6 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+var os = require("os");
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -39,7 +41,10 @@ pgClient.on("connect", (client) => {
 
 // Say hello
 app.get("/hello", (req, res) => {
-  res.send("Hello world!!!")
+  const myos = os.hostname();
+  console.log(myos);
+  console.log("Herrrrrro")
+  res.send(myos)
 });
 
 
